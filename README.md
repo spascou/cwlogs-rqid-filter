@@ -1,11 +1,12 @@
 # cwlogs-rqid-filter.py
 _Ever wanted to filter AWS CloudWatch logs and not only keep the matching events, but also all events that have the same Request ID that the matching event(s)?_
 
-This python3 script obtains all log events related to a single request (by AWS Request ID) that in any message of any event match a custom python regex pattern.
-It works by fetching all events for the period, searching their message with the custom filter pattern and filtering only events that have these request IDs.
+This python3 script prints all log events messages related to a single request (by AWS Request ID) that in any message of any event match a custom python regex pattern.
+It works by fetching all events for the period, searching their messages with the custom regex pattern and filtering only events that have the request IDs that have a message matching.
 
 ## Usage
 The script is mostly intended for interactive usage.
+Install the requirements found in requirements.txt (boto3), and perform Credentials configuration (https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html).
 
 ```
 usage: cwlogs-rqid-filter.py [-h] --group GROUP_NAME --filter FILTER
