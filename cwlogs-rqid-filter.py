@@ -102,7 +102,12 @@ def filter_events(events, filter_regex_pattern):
         event['message'] = message
 
         # Get request ID
-        request_id = REQUEST_ID_REGEX.search(message).group(0)
+        request_id = REQUEST_ID_REGEX.search(message)
+        if request_id:
+            request_id = request_id.group(0)
+        else:
+            continue
+
         event['request_id'] = request_id
 
         # Match filter pattern
@@ -114,7 +119,7 @@ def filter_events(events, filter_regex_pattern):
     # Collect events that have a matching request ID
     filtered_events = []
     for event in events:
-        if event['request_id'] in matching_request_ids:
+        if 'request_id' in event and event['request_id'] in matching_request_ids:
             filtered_events.append(event)
 
     logger.debug('Filtered {} events'.format(len(filtered_events)))
