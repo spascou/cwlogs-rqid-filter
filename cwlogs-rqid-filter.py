@@ -7,10 +7,10 @@ events that match the filter.
 
 import logging
 import re
-from datetime import datetime, timezone
+from datetime import datetime
 
 import boto3
-import dateutil.parser
+import ciso8601
 
 logging.basicConfig()
 logger = logging.getLogger(__name__)
@@ -241,16 +241,14 @@ if __name__ == "__main__":
         request_parameters["startTime"] = args.start_timestamp
     elif args.start:
         request_parameters["startTime"] = int(
-            dateutil.parser.parse(args.start).replace(tzinfo=timezone.utc).timestamp()
-            * 1000
+            ciso8601.parse_datetime(args.start).timestamp() * 1000
         )
 
     if args.stop_timestamp:
         request_parameters["endTime"] = args.stop_timestamp
     elif args.stop:
         request_parameters["endTime"] = int(
-            dateutil.parser.parse(args.stop).replace(tzinfo=timezone.utc).timestamp()
-            * 1000
+            ciso8601.parse_datetime(args.stop).timestamp() * 1000
         )
 
     # Run
