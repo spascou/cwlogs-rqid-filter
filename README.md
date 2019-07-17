@@ -2,7 +2,7 @@
 _Ever wanted to filter AWS CloudWatch logs and not only keep the matching events, but also all events that have the same Request ID that the matching event(s)?_
 
 This python script fetches all log events messages related to requests (by AWS Request ID) that in any message of any event match a custom python regex pattern.
-It fetches all events for the period, searching their messages with the custom regex pattern and filters only events that have the request IDs that have a message matching.
+It fetches all events for the period, searching their messages with the custom regex pattern and filters only events that have the request IDs that have at least one message matching.
 
 Changes are described in CHANGELOG.md.
 

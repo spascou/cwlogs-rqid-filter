@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "cwlogs_rqid_filter"
-version = "0.2.0"
+version = "0.2.1"
 readme = "README.md"
-description = "Fetch all log events messages related to a single request (by AWS Request ID) that in any message of any event match a custom python regex pattern"
+description = "Fetch all log events messages related to requests (by AWS Request ID) that in any message of any event match a custom python regex pattern"
 homepage = "https://github.com/spascou/cwlogs-rqid-filter"
 authors = ["Sylvain Pascou <sylvain@pascou.net>"]
 license = "MIT"
