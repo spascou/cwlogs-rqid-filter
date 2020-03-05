@@ -10,7 +10,7 @@ packages = [{ include = "cwlogs_rqid_filter" }]
 
 [tool.poetry.dependencies]
 python = "^3.7"
-boto3 = "^1.9"
+boto3 = "^1.12"
 ciso8601 = "^2.1"
 
 [tool.poetry.dev-dependencies]
